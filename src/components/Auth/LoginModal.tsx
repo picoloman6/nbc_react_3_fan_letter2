@@ -4,7 +4,8 @@ import {
   StLoginModal,
   StModalTitle,
   StInputWapper,
-  StInputErrWrapper
+  StInputErrWrapper,
+  StFormInput
 } from './AuthPage.style';
 import { StLoginSpan } from '../Home/Header.style';
 import { StErrMsg } from '../Home/MainForm.style';
@@ -48,7 +49,7 @@ const LoginModal = ({ changeIsLogin }: LoginModalPropsTypes) => {
       <StInputErrWrapper>
         <StInputWapper>
           <label htmlFor='login-form-id'>아이디</label>
-          <input
+          <StFormInput
             type='text'
             id='login-form-id'
             name='id'
@@ -62,7 +63,7 @@ const LoginModal = ({ changeIsLogin }: LoginModalPropsTypes) => {
       <StInputErrWrapper>
         <StInputWapper>
           <label htmlFor='login-form-password'>비밀번호</label>
-          <input
+          <StFormInput
             type='password'
             id='login-form-password'
             name='password'

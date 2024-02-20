@@ -17,10 +17,6 @@ export const StFormTitle = styled('h3', {
   margin: '0 auto'
 });
 
-export const StFormInput = styled('input', {
-  height: '2rem'
-});
-
 export const StFormTextArea = styled('textarea', {
   height: '4rem',
   resize: 'none'

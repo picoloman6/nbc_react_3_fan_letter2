@@ -32,7 +32,7 @@ export const StLoginModal = styled('form', {
   width: '50vw',
   maxWidth: '37rem',
   background: 'Violet',
-  gap: '3rem',
+  gap: '2.5rem',
   variants: {
     isLogin: {
       true: {
@@ -65,4 +65,8 @@ export const StInputWapper = styled('div', {
 export const StBtnWrapper = styled('div', {
   ...flex,
   flexDirection: 'column'
+});
+
+export const StFormInput = styled('input', {
+  height: '2rem'
 });

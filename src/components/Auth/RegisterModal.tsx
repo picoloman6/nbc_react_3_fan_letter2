@@ -4,7 +4,8 @@ import {
   StModalTitle,
   StInputWapper,
   StBtnWrapper,
-  StInputErrWrapper
+  StInputErrWrapper,
+  StFormInput
 } from './AuthPage.style';
 import { StErrMsg } from '../Home/MainForm.style';
 
@@ -64,7 +65,7 @@ const RegisterModal = ({ changeIsLogin }: RegisterModalPropsTypes) => {
       <StInputErrWrapper>
         <StInputWapper>
           <label htmlFor='register-form-id'>아이디</label>
-          <input
+          <StFormInput
             type='text'
             id='register-form-id'
             name='id'
@@ -78,7 +79,7 @@ const RegisterModal = ({ changeIsLogin }: RegisterModalPropsTypes) => {
       <StInputErrWrapper>
         <StInputWapper>
           <label htmlFor='register-form-nickname'>닉네임</label>
-          <input
+          <StFormInput
             type='text'
             id='register-form-nickname'
             name='nickname'
@@ -92,7 +93,7 @@ const RegisterModal = ({ changeIsLogin }: RegisterModalPropsTypes) => {
       <StInputErrWrapper>
         <StInputWapper>
           <label htmlFor='register-form-password'>비밀번호</label>
-          <input
+          <StFormInput
             type='password'
             id='register-form-password'
             name='password'
@@ -106,7 +107,7 @@ const RegisterModal = ({ changeIsLogin }: RegisterModalPropsTypes) => {
       <StInputErrWrapper>
         <StInputWapper>
           <label htmlFor='register-form-confirm-password'>비밀번호 확인</label>
-          <input
+          <StFormInput
             type='password'
             id='register-form-confirm-password'
             name='confirmPassword'
