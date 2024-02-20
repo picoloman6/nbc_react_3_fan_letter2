@@ -57,7 +57,12 @@ const Home = ({ member, changeMember }: MainPropsTypes) => {
 
   return (
     <>
-      <Header member={member} changeMember={changeMember} token={token} />
+      <Header
+        member={member}
+        changeMember={changeMember}
+        token={token}
+        userName={userInfo.nickname}
+      />
       {token && (
         <MainForm member={member} errMsg={errMsg} onClickForm={onClickForm} />
       )}

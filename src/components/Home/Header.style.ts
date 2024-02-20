@@ -25,3 +25,12 @@ export const StLoginSpan = styled('span', {
     }
   }
 });
+
+export const StUserInfoSpan = styled('span', {
+  marginRight: '1rem',
+  fontWeight: 'bold'
+});
+
+export const StUserInfoWrapper = styled('div', {
+  marginTop: '1.5rem'
+});
