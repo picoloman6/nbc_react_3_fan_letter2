@@ -9,9 +9,10 @@ import { StErrMsg } from '../components/Home/MainForm.style';
 import { StDetailFooter } from './Detail.style';
 
 import { __deleteLetter, __updateLetter } from '../redux/letters';
-import { useAppDispatch } from '../redux/config';
+import { useAppDispatch, useAppSelector } from '../redux/config';
 import { ErrMsgTypes } from '../types/letters';
 import { checkFormValue } from '../controllers/validation';
+import { getCookie } from '../controllers/cookies';
 
 const Detail = () => {
   const dipatch = useAppDispatch();
@@ -21,6 +22,9 @@ const Detail = () => {
   const [isUpdate, setIsUpdate] = useState<boolean>(false);
   const [newContent, setNewContent] = useState<string>(state.content);
   const [errMsg, setErrMsg] = useState<ErrMsgTypes>({ type: '', msg: '' });
+
+  const token = getCookie('access_token');
+  const userInfo = useAppSelector((state) => state.user.userInfo);
 
   const changeUpdate = () => {
     setIsUpdate((prev) => !prev);
@@ -68,15 +72,17 @@ const Detail = () => {
         ) : (
           <DetailLetter content={state.content} />
         )}
-        <StDetailFooter>
-          <DetailBtns
-            isUpdate={isUpdate}
-            changeUpdate={changeUpdate}
-            onClickUpdate={onClickUpdate}
-            onClickDelete={onClickDelete}
-          />
-          <StErrMsg>{errMsg.msg}</StErrMsg>
-        </StDetailFooter>
+        {token && state.userId === userInfo.id && (
+          <StDetailFooter>
+            <DetailBtns
+              isUpdate={isUpdate}
+              changeUpdate={changeUpdate}
+              onClickUpdate={onClickUpdate}
+              onClickDelete={onClickDelete}
+            />
+            <StErrMsg>{errMsg.msg}</StErrMsg>
+          </StDetailFooter>
+        )}
       </>
     );
   }
