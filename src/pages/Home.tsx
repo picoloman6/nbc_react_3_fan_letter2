@@ -1,4 +1,5 @@
-import { ReactElement, useState } from 'react';
+import { useState, useEffect, ReactElement } from 'react';
+import { Cookies } from 'react-cookie';
 
 import Header from '../components/Home/Header';
 import MainForm from '../components/Home/MainForm';
@@ -16,6 +17,7 @@ interface MainPropsTypes {
 
 const Home = ({ member, changeMember }: MainPropsTypes) => {
   const data = useAppSelector((state: RootState) => state.letters);
+  const cookies = new Cookies();
 
   const [errMsg, setErrMsg] = useState<ErrMsgTypes>({ type: '', msg: '' });
 
@@ -31,6 +33,10 @@ const Home = ({ member, changeMember }: MainPropsTypes) => {
 
     setInput({ name: '', content: '' });
   };
+
+  useEffect(() => {
+    console.log(cookies.get('access_token'));
+  }, []);
 
   return (
     <>

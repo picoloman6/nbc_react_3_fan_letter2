@@ -19,7 +19,7 @@ export const registerUserApi = async (newUser: UserInputType) => {
 export const loginUserApi = async ({ id, password }: RegisterValueTypes) => {
   try {
     const res = await instance.post('/login', { id, password });
-    return res.data;
+    return res.data.accessToken;
   } catch (e) {
     const error = e as AxiosError;
     return error.response?.status;

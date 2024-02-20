@@ -1,3 +1,5 @@
+import { useNavigate } from 'react-router-dom';
+
 import {
   StLoginModal,
   StModalTitle,
@@ -10,13 +12,16 @@ import { loginUserApi } from '../../apis/users';
 import useForm from '../../hooks/useForm';
 import useError from '../../hooks/useError';
 import { checkRegFormValue } from '../../controllers/validation';
+import { setCookie } from '../../controllers/cookies';
 
 interface LoginModalPropsTypes {
   changeIsLogin: () => void;
 }
 
 const LoginModal = ({ changeIsLogin }: LoginModalPropsTypes) => {
-  const { value, handleChange, reset } = useForm({ id: '', password: '' });
+  const navigate = useNavigate();
+
+  const { value, handleChange } = useForm({ id: '', password: '' });
   const { err, handleChangeErr } = useError();
 
   const handleSubmit = async (e: React.FormEvent) => {
@@ -30,16 +35,16 @@ const LoginModal = ({ changeIsLogin }: LoginModalPropsTypes) => {
         handleChangeErr({ type: 'id', msg: '아이디와 비밀번호를 확인하세요' });
         return;
       }
+
+      setCookie('access_token', data);
     }
 
-    handleChangeErr(checkValue);
-    reset();
+    navigate('/');
   };
 
   return (
     <StLoginModal isLogin='true' onSubmit={handleSubmit}>
       <StModalTitle>로그인 페이지</StModalTitle>
-
       <StInputErrWrapper>
         <StInputWapper>
           <label htmlFor='login-form-id'>아이디</label>

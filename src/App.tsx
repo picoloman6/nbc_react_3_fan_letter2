@@ -1,5 +1,6 @@
 import { useEffect, useState } from 'react';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import { CookiesProvider } from 'react-cookie';
 
 import Home from './pages/Home';
 // import Detail from './pages/Detail';
@@ -25,17 +26,19 @@ function App() {
   }, [dispatch]);
 
   return (
-    <BrowserRouter>
-      <Routes>
-        <Route
-          path='/'
-          element={<Home member={member} changeMember={changeMember} />}
-        />
-        {/* <Route path='/detail' element={<Detail />} /> */}
-        <Route path='/auth' element={<AuthPage />} />
-        <Route path='*' element={<NotFound />} />
-      </Routes>
-    </BrowserRouter>
+    <CookiesProvider>
+      <BrowserRouter>
+        <Routes>
+          <Route
+            path='/'
+            element={<Home member={member} changeMember={changeMember} />}
+          />
+          {/* <Route path='/detail' element={<Detail />} /> */}
+          <Route path='/auth' element={<AuthPage />} />
+          <Route path='*' element={<NotFound />} />
+        </Routes>
+      </BrowserRouter>
+    </CookiesProvider>
   );
 }
 
