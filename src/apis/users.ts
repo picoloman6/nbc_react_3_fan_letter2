@@ -1,17 +1,27 @@
-import axios from 'axios';
+import axios, { AxiosError } from 'axios';
 
-import { UserInputType } from '../types/users';
+import { RegisterValueTypes, UserInputType } from '../types/users';
 
 const instance = axios.create({
   baseURL: 'https://moneyfulpublicpolicy.co.kr'
 });
 
 export const registerUserApi = async (newUser: UserInputType) => {
-  const res = await instance.post('/register', newUser);
-  console.log(res);
+  try {
+    const res = await instance.post('/register', newUser);
+    return res.data;
+  } catch (e) {
+    const error = e as AxiosError;
+    return error.response?.status;
+  }
 };
 
-export const loginUserApi = async (id: string, password: string) => {
-  const res = await instance.post('/login', { id, password });
-  console.log(res);
+export const loginUserApi = async ({ id, password }: RegisterValueTypes) => {
+  try {
+    const res = await instance.post('/login', { id, password });
+    return res.data;
+  } catch (e) {
+    const error = e as AxiosError;
+    return error.response?.status;
+  }
 };

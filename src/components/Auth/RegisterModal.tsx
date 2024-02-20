@@ -7,17 +7,17 @@ import {
   StInputErrWrapper
 } from './AuthPage.style';
 import { StErrMsg } from '../Home/MainForm.style';
-import useFrom from '../../hooks/useForm';
+import useForm from '../../hooks/useForm';
 import useError from '../../hooks/useError';
 import { registerUserApi } from '../../apis/users';
-import { checkRegFormValue } from '../../controllers';
+import { checkRegFormValue } from '../../controllers/validation';
 
 interface RegisterModalPropsTypes {
   changeIsLogin: () => void;
 }
 
 const RegisterModal = ({ changeIsLogin }: RegisterModalPropsTypes) => {
-  const { value, handleChange, reset } = useFrom({
+  const { value, handleChange, reset } = useForm({
     id: '',
     password: '',
     confirmPassword: '',
@@ -25,7 +25,7 @@ const RegisterModal = ({ changeIsLogin }: RegisterModalPropsTypes) => {
   });
   const { err, handleChangeErr } = useError();
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     const { id, password, confirmPassword, nickname } = value;
     const checkValue = checkRegFormValue(value);
@@ -35,13 +35,22 @@ const RegisterModal = ({ changeIsLogin }: RegisterModalPropsTypes) => {
     }
 
     if (checkValue.type === '') {
-      registerUserApi({
-        id,
-        password,
-        nickname
-      });
+      try {
+        const data = await registerUserApi({
+          id,
+          password,
+          nickname
+        });
 
-      reset();
+        if (data === 409) {
+          handleChangeErr({ type: 'id', msg: '존재하는 아이디 입니다.' });
+          return;
+        }
+
+        reset();
+      } catch (e) {
+        console.log(e);
+      }
     }
 
     handleChangeErr(checkValue);

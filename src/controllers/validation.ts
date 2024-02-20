@@ -2,17 +2,6 @@ import { letterLenLimit } from '../constants';
 import { ErrMsgTypes } from '../types/letters';
 import { RegisterValueTypes } from '../types/users';
 
-export const convertDate = (dateTime: number) => {
-  const dateObj = new Date(dateTime);
-  const year = dateObj.getFullYear();
-  const mon = dateObj.getMonth() + 1;
-  const date = dateObj.getDate();
-  const hour = dateObj.getHours();
-  const min = dateObj.getMinutes();
-
-  return `${year}년 ${mon}월 ${date}일 ${hour}시 ${min}분`;
-};
-
 export const checkFormValue = (
   name: string,
   content: string,
@@ -69,7 +58,7 @@ export const checkRegFormValue = (value: RegisterValueTypes): ErrMsgTypes => {
     };
   }
 
-  if (password !== confirmPassword) {
+  if (confirmPassword === '' && password !== confirmPassword) {
     return {
       type: 'confirmPassword',
       msg: '비밀번호가 일치하지 않습니다'

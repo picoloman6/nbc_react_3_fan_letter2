@@ -6,7 +6,7 @@ import FanLetter from '../components/Home/FanLetter';
 
 import { MemberTypes, ErrMsgTypes, ClickFormTypes } from '../types/letters';
 import { StMainUl } from './Home.style';
-import { checkFormValue } from '../controllers';
+import { checkFormValue } from '../controllers/validation';
 import { RootState, useAppSelector } from '../redux/config';
 
 interface MainPropsTypes {

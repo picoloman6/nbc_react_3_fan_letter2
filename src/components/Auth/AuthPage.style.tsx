@@ -28,8 +28,8 @@ export const StLoginModal = styled('form', {
   variants: {
     isLogin: {
       true: {
-        height: '70vh',
-        maxHeight: '22rem'
+        height: '75vh',
+        maxHeight: '24rem'
       },
       false: {
         height: '95vh',

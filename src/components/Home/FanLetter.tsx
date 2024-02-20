@@ -1,6 +1,6 @@
 import { useNavigate } from 'react-router-dom';
 
-import { convertDate } from '../../controllers';
+import { convertDate } from '../../controllers/date';
 import { LettersType } from '../../types/letters';
 import { StFanLetterWrapper, StFanLetterName } from './FanLetter.style';
 

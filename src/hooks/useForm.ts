@@ -2,7 +2,7 @@ import { useState } from 'react';
 
 import { RegisterValueTypes } from '../types/users';
 
-const useFrom = (state: RegisterValueTypes) => {
+const useForm = (state: RegisterValueTypes) => {
   const [value, setValue] = useState({ ...state });
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -17,4 +17,4 @@ const useFrom = (state: RegisterValueTypes) => {
   return { value, handleChange, reset };
 };
 
-export default useFrom;
+export default useForm;

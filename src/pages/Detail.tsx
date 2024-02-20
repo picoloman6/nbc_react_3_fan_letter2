@@ -15,7 +15,7 @@ import { ErrMsgTypes } from '../types';
 import { StErrMsg } from '../components/Main/MainForm.style';
 import { StDetailFooter } from './Detail.style';
 
-import { checkFormValue } from '../controllers';
+import { checkFormValue } from '../controllers/date';
 
 const Detail = () => {
   const dipatch = useThunkDispatch();
