@@ -1,5 +1,6 @@
 import { letterLenLimit } from '../constants';
 import { ErrMsgTypes } from '../types/letters';
+import { RegisterValueTypes } from '../types/users';
 
 export const convertDate = (dateTime: number) => {
   const dateObj = new Date(dateTime);
@@ -34,6 +35,44 @@ export const checkFormValue = (
     return {
       type: 'content',
       msg: letterLenLimit.getErrMsg()
+    };
+  }
+
+  return { type: '', msg: '' };
+};
+
+export const checkRegFormValue = (value: RegisterValueTypes): ErrMsgTypes => {
+  const { id, password, confirmPassword, nickname } = value;
+
+  if (id.length < 2) {
+    return { type: 'id', msg: '아이디를 두글자 이상 입력하세요' };
+  }
+
+  if (nickname === '' && nickname.length < 2) {
+    return {
+      type: 'nickname',
+      msg: '닉네임을 두글자 이상 입력하세요'
+    };
+  }
+
+  if (password.length < 2) {
+    return {
+      type: 'password',
+      msg: '비밀번호를 두글자 이상 입력하세요'
+    };
+  }
+
+  if (confirmPassword === '' && confirmPassword.length < 2) {
+    return {
+      type: 'confirmPassword',
+      msg: '비밀번호 확인을 두글자 이상 입력하세요'
+    };
+  }
+
+  if (password !== confirmPassword) {
+    return {
+      type: 'confirmPassword',
+      msg: '비밀번호가 일치하지 않습니다'
     };
   }
 

@@ -17,7 +17,14 @@ export interface LettersType extends LetterInputTypes {
 }
 
 export interface ErrMsgTypes {
-  type: '' | 'name' | 'content';
+  type:
+    | ''
+    | 'name'
+    | 'content'
+    | 'id'
+    | 'nickname'
+    | 'password'
+    | 'confirmPassword';
   msg: string;
 }
 

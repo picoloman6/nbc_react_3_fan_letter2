@@ -32,8 +32,8 @@ export const StLoginModal = styled('form', {
         maxHeight: '22rem'
       },
       false: {
-        height: '85vh',
-        maxHeight: '30rem'
+        height: '95vh',
+        maxHeight: '40rem'
       }
     }
   }
@@ -44,8 +44,17 @@ export const StModalTitle = styled('h1', {
   fontWeight: 'bold'
 });
 
+export const StInputErrWrapper = styled('div', {
+  width: '60%'
+});
+
 export const StInputWapper = styled('div', {
   ...flex,
   justifyContent: 'space-between',
-  width: '60%'
+  width: '100%'
+});
+
+export const StBtnWrapper = styled('div', {
+  ...flex,
+  flexDirection: 'column'
 });
