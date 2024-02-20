@@ -21,6 +21,12 @@ export const postLetterApi = async (newLetter: LettersType) => {
   await instance.post('/letters', newLetter);
 };
 
-export const deleteLetterApi = () => {};
+export const deleteLetterApi = async (id: string) => {
+  await instance.delete(`/letters/${id}`);
+};
 
-export const updateLetterApi = () => {};
+export const updateLetterApi = async (id: string, content: string) => {
+  await instance.patch(`letters/${id}`, {
+    content
+  });
+};
