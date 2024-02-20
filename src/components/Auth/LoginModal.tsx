@@ -1,8 +1,13 @@
-import { StLoginModal, StModalTitle, StInputWapper } from './LoginPagestyle';
+import { StLoginModal, StModalTitle, StInputWapper } from './AuthPage.style';
+import { StLoginSpan } from '../Home/Header.style';
 
-const LoginModal = () => {
+interface LoginModalPropsTypes {
+  changeIsLogin: () => void;
+}
+
+const LoginModal = ({ changeIsLogin }: LoginModalPropsTypes) => {
   return (
-    <StLoginModal>
+    <StLoginModal isLogin='true'>
       <StModalTitle>로그인 페이지</StModalTitle>
       <StInputWapper>
         <label>아이디</label>
@@ -13,6 +18,7 @@ const LoginModal = () => {
         <input type='password' />
       </StInputWapper>
       <button>로그인</button>
+      <StLoginSpan onClick={changeIsLogin}>회원가입</StLoginSpan>
     </StLoginModal>
   );
 };

@@ -15,7 +15,13 @@ export const StHeaderTitle = styled('h1', {
 });
 
 export const StLoginSpan = styled('span', {
-  marginTop: '1rem',
   borderBottom: '1px solid black',
-  cursor: 'pointer'
+  cursor: 'pointer',
+  variants: {
+    marginTop: {
+      true: {
+        marginTop: '1rem'
+      }
+    }
+  }
 });

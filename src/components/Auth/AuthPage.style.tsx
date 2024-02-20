@@ -23,10 +23,20 @@ export const StLoginModal = styled('form', {
   flexDirection: 'column',
   width: '50vw',
   maxWidth: '37rem',
-  height: '70vh',
-  maxHeight: '22rem',
   background: 'white',
-  gap: '3rem'
+  gap: '3rem',
+  variants: {
+    isLogin: {
+      true: {
+        height: '70vh',
+        maxHeight: '22rem'
+      },
+      false: {
+        height: '85vh',
+        maxHeight: '30rem'
+      }
+    }
+  }
 });
 
 export const StModalTitle = styled('h1', {

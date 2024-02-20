@@ -8,13 +8,15 @@ import { StHeaderWrapper, StHeaderTitle, StLoginSpan } from './Header.style.ts';
 const Header = memo(({ member, changeMember }: MemberStateTypes) => {
   const navigate = useNavigate();
   const handleClickLogin = () => {
-    navigate('/login');
+    navigate('/auth');
   };
 
   return (
     <StHeaderWrapper>
       <StHeaderTitle>프로젝트다</StHeaderTitle>
-      <StLoginSpan onClick={handleClickLogin}>로그인</StLoginSpan>
+      <StLoginSpan onClick={handleClickLogin} marginTop='true'>
+        로그인
+      </StLoginSpan>
       <SelectArea member={member} changeMember={changeMember} />
     </StHeaderWrapper>
   );
