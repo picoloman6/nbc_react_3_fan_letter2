@@ -1,6 +1,11 @@
 import { createAsyncThunk, createSlice } from '@reduxjs/toolkit';
 
-import { getLettersApi } from '../apis/letters';
+import {
+  deleteLetterApi,
+  getLettersApi,
+  postLetterApi,
+  updateLetterApi
+} from '../apis/letters';
 import { LettersType } from '../types/letters';
 
 interface StateTypes {
@@ -15,6 +20,42 @@ export const __getLetters = createAsyncThunk(
     try {
       const data = await getLettersApi();
       return thunkApi.fulfillWithValue(data);
+    } catch (e) {
+      return thunkApi.rejectWithValue(e);
+    }
+  }
+);
+
+export const __postLetter = createAsyncThunk(
+  'postLetter',
+  async (newLetter: LettersType, thunkApi) => {
+    try {
+      const data = await postLetterApi(newLetter);
+      return thunkApi.fulfillWithValue(data);
+    } catch (e) {
+      return thunkApi.rejectWithValue(e);
+    }
+  }
+);
+
+export const __deleteLetter = createAsyncThunk(
+  'deleteLetter',
+  async (id: string, thunkApi) => {
+    try {
+      await deleteLetterApi(id);
+      return thunkApi.fulfillWithValue(id);
+    } catch (e) {
+      return thunkApi.rejectWithValue(e);
+    }
+  }
+);
+
+export const __updateLetter = createAsyncThunk(
+  'updateLetter',
+  async ({ id, content }: { id: string; content: string }, thunkApi) => {
+    try {
+      await updateLetterApi(id, content);
+      return thunkApi.fulfillWithValue({ id, content });
     } catch (e) {
       return thunkApi.rejectWithValue(e);
     }
@@ -42,6 +83,19 @@ const lettersSlice = createSlice({
     builder.addCase(__getLetters.rejected, (state, action) => {
       state.isLoading = false;
       state.error = action.payload;
+    });
+    builder.addCase(__postLetter.fulfilled, (state, action) => {
+      state.letters = [action.payload, ...state.letters];
+    });
+    builder.addCase(__deleteLetter.fulfilled, (state, action) => {
+      state.letters = state.letters.filter((v) => v.id !== action.payload);
+    });
+    builder.addCase(__updateLetter.fulfilled, (state, action) => {
+      state.letters = state.letters.map((v) =>
+        v.id === action.payload.id
+          ? { ...v, content: action.payload.content }
+          : v
+      );
     });
   }
 });

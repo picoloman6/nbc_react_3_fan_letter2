@@ -9,10 +9,9 @@ import { StMainUl } from './Home.style';
 import { MemberTypes, ErrMsgTypes, ClickFormTypes } from '../types/letters';
 import { checkFormValue } from '../controllers/validation';
 import { getCookie } from '../controllers/cookies';
-import { postLetterApi } from '../apis/letters';
 import { RootState, useAppDispatch, useAppSelector } from '../redux/config';
+import { __postLetter } from '../redux/letters';
 import { __getUserInfo } from '../redux/users';
-import { __getLetters } from '../redux/letters';
 
 interface MainPropsTypes {
   member: MemberTypes;
@@ -46,8 +45,7 @@ const Home = ({ member, changeMember }: MainPropsTypes) => {
       createdAt: new Date().getTime()
     };
 
-    await postLetterApi(newLetter);
-    dispatch(__getLetters());
+    dispatch(__postLetter(newLetter));
     setInput('');
   };
 

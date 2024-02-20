@@ -8,8 +8,7 @@ import DetailBtns from '../components/Detail/DetailBtns';
 import { StErrMsg } from '../components/Home/MainForm.style';
 import { StDetailFooter } from './Detail.style';
 
-import { deleteLetterApi, updateLetterApi } from '../apis/letters';
-import { __getLetters } from '../redux/letters';
+import { __deleteLetter, __updateLetter } from '../redux/letters';
 import { useAppDispatch } from '../redux/config';
 import { ErrMsgTypes } from '../types/letters';
 import { checkFormValue } from '../controllers/validation';
@@ -39,15 +38,13 @@ const Detail = () => {
       return;
     }
 
-    await updateLetterApi(state.id, newContent);
-    dipatch(__getLetters());
+    dipatch(__updateLetter({ id: state.id, content: newContent }));
     state.content = newContent;
     setIsUpdate(false);
   };
 
   const onClickDelete = async () => {
-    await deleteLetterApi(state.id);
-    dipatch(__getLetters());
+    dipatch(__deleteLetter(state.id));
     navigate(-1);
   };
 

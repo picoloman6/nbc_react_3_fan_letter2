@@ -11,7 +11,7 @@
     {
       "id": "9561105c-c353-4399-931c-0870c19b708e",
       "member": "카리나",
-      "content": "하이요요요용",
+      "content": "하이요요요용ㅇㅇㅇ",
       "userId": "nbc123",
       "userName": "111",
       "createdAt": 1708423189833
@@ -41,20 +41,20 @@
       "createdAt": 1708423795145
     },
     {
-      "id": "f7fbe9ec-f170-482a-825f-3c8e62eae7a5",
-      "member": "카리나",
-      "content": "카리나 하이!",
-      "userId": "nbc321",
-      "userName": "카리나짱짱맨",
-      "createdAt": 1708423852700
-    },
-    {
       "id": "ef68a9c4-baa2-4b47-910d-de18d93240e3",
       "member": "윈터",
       "content": "윈터 반가워요",
       "userId": "nbc321",
       "userName": "카리나짱짱맨",
       "createdAt": 1708423950681
+    },
+    {
+      "id": "3d4467b1-77a0-4f06-88dc-49ceb4308290",
+      "member": "카리나",
+      "content": "ㄴㅇㄹㄴㅇㄹㅁㅁㅁㅁㅁ",
+      "userId": "nbc321",
+      "userName": "카리나짱짱맨",
+      "createdAt": 1708426398837
     }
   ]
 }
