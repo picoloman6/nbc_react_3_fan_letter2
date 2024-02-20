@@ -1,5 +1,4 @@
 import { useState, useEffect, ReactElement } from 'react';
-import { Cookies } from 'react-cookie';
 
 import Header from '../components/Home/Header';
 import MainForm from '../components/Home/MainForm';
@@ -9,6 +8,7 @@ import { MemberTypes, ErrMsgTypes, ClickFormTypes } from '../types/letters';
 import { StMainUl } from './Home.style';
 import { checkFormValue } from '../controllers/validation';
 import { RootState, useAppSelector } from '../redux/config';
+import { getCookie } from '../controllers/cookies';
 
 interface MainPropsTypes {
   member: MemberTypes;
@@ -17,7 +17,7 @@ interface MainPropsTypes {
 
 const Home = ({ member, changeMember }: MainPropsTypes) => {
   const data = useAppSelector((state: RootState) => state.letters);
-  const cookies = new Cookies();
+  const token = getCookie('access_token');
 
   const [errMsg, setErrMsg] = useState<ErrMsgTypes>({ type: '', msg: '' });
 
@@ -35,13 +35,17 @@ const Home = ({ member, changeMember }: MainPropsTypes) => {
   };
 
   useEffect(() => {
-    console.log(cookies.get('access_token'));
-  }, []);
+    if (token) {
+      console.log(token);
+    }
+  }, [token]);
 
   return (
     <>
-      <Header member={member} changeMember={changeMember} />
-      <MainForm member={member} errMsg={errMsg} onClickForm={onClickForm} />
+      <Header member={member} changeMember={changeMember} token={token} />
+      {token && (
+        <MainForm member={member} errMsg={errMsg} onClickForm={onClickForm} />
+      )}
       <StMainUl>
         {!data.isLoading &&
           data.letters.reduce(

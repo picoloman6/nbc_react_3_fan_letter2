@@ -11,6 +11,7 @@ const flex = {
 export const StModalWrapper = styled('div', {
   position: 'fixed',
   ...flex,
+  flexDirection: 'column',
   top: '0',
   width: '100%',
   height: '100%',
@@ -18,12 +19,19 @@ export const StModalWrapper = styled('div', {
   overflow: 'none'
 });
 
+export const StGoHomeBtn = styled('button', {
+  width: '30rem',
+  height: '5rem',
+  background: 'Pink',
+  cursor: 'pointer'
+});
+
 export const StLoginModal = styled('form', {
   ...flex,
   flexDirection: 'column',
   width: '50vw',
   maxWidth: '37rem',
-  background: 'white',
+  background: 'Violet',
   gap: '3rem',
   variants: {
     isLogin: {
