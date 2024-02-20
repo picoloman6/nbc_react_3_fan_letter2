@@ -13,10 +13,14 @@ const instance = axios.create({
 });
 
 export const getLettersApi = async () => {
-  const res = await instance.get('/letters');
+  const res = await instance.get('/letters?_sort=-createdAt');
   return res.data as LettersType[];
 };
 
 export const postLetterApi = async (newLetter: LettersType) => {
   await instance.post('/letters', newLetter);
 };
+
+export const deleteLetterApi = () => {};
+
+export const updateLetterApi = () => {};

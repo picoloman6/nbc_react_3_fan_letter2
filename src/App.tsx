@@ -3,7 +3,7 @@ import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import { CookiesProvider } from 'react-cookie';
 
 import Home from './pages/Home';
-// import Detail from './pages/Detail';
+import Detail from './pages/Detail';
 import AuthPage from './components/Auth/AuthPage';
 
 import NotFound from './pages/NotFound';
@@ -33,7 +33,7 @@ function App() {
             path='/'
             element={<Home member={member} changeMember={changeMember} />}
           />
-          {/* <Route path='/detail' element={<Detail />} /> */}
+          <Route path='/detail' element={<Detail />} />
           <Route path='/auth' element={<AuthPage />} />
           <Route path='*' element={<NotFound />} />
         </Routes>

@@ -7,6 +7,7 @@ import {
   StInputErrWrapper
 } from './AuthPage.style';
 import { StErrMsg } from '../Home/MainForm.style';
+
 import useForm from '../../hooks/useForm';
 import useError from '../../hooks/useError';
 import { registerUserApi } from '../../apis/users';
@@ -54,6 +55,7 @@ const RegisterModal = ({ changeIsLogin }: RegisterModalPropsTypes) => {
     }
 
     handleChangeErr(checkValue);
+    changeIsLogin();
   };
 
   return (

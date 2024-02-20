@@ -31,6 +31,30 @@
       "userId": "nbc123",
       "userName": "111",
       "createdAt": 1708423599253
+    },
+    {
+      "id": "a46ddd7b-7926-4a04-a848-578e82a4f8ad",
+      "member": "닝닝",
+      "content": "닝닝닝닝닝",
+      "userId": "nbc111",
+      "userName": "카카로트",
+      "createdAt": 1708423795145
+    },
+    {
+      "id": "f7fbe9ec-f170-482a-825f-3c8e62eae7a5",
+      "member": "카리나",
+      "content": "카리나 하이!",
+      "userId": "nbc321",
+      "userName": "카리나짱짱맨",
+      "createdAt": 1708423852700
+    },
+    {
+      "id": "ef68a9c4-baa2-4b47-910d-de18d93240e3",
+      "member": "윈터",
+      "content": "윈터 반가워요",
+      "userId": "nbc321",
+      "userName": "카리나짱짱맨",
+      "createdAt": 1708423950681
     }
   ]
 }

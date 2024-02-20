@@ -5,20 +5,17 @@ import DetailHeader from '../components/Detail/DetailHeader';
 import DetailLetter from '../components/Detail/DetailLetter';
 import DetailUpdateArea from '../components/Detail/DetailUpdateArea';
 import DetailBtns from '../components/Detail/DetailBtns';
-
-import { deleteFanLetter, updateFanLetter } from '../apis/fanLetters';
-import { getLettersThunk } from '../store/fanLetters';
-import { useThunkDispatch } from '../store';
-
-import { ErrMsgTypes } from '../types';
-
-import { StErrMsg } from '../components/Main/MainForm.style';
+import { StErrMsg } from '../components/Home/MainForm.style';
 import { StDetailFooter } from './Detail.style';
 
-import { checkFormValue } from '../controllers/date';
+import { deleteLetterApi, updateLetterApi } from '../apis/letters';
+import { __getLetters } from '../redux/letters';
+import { useAppDispatch } from '../redux/config';
+import { ErrMsgTypes } from '../types/letters';
+import { checkFormValue } from '../controllers/validation';
 
 const Detail = () => {
-  const dipatch = useThunkDispatch();
+  const dipatch = useAppDispatch();
   const { state } = useLocation();
   const navigate = useNavigate();
 
@@ -35,22 +32,22 @@ const Detail = () => {
   };
 
   const onClickUpdate = async () => {
-    const checkResult = checkFormValue(state.name, newContent, state.content);
+    const checkResult = checkFormValue(newContent, state.content);
     setErrMsg(checkResult);
 
     if (checkResult.type !== '') {
       return;
     }
 
-    await updateFanLetter(state.id, newContent);
-    dipatch(getLettersThunk());
+    await updateLetterApi(state.id, newContent);
+    dipatch(__getLetters());
     state.content = newContent;
     setIsUpdate(false);
   };
 
   const onClickDelete = async () => {
-    await deleteFanLetter(state.id);
-    dipatch(getLettersThunk());
+    await deleteLetterApi(state.id);
+    dipatch(__getLetters());
     navigate(-1);
   };
 
@@ -65,7 +62,7 @@ const Detail = () => {
   if (state) {
     return (
       <>
-        <DetailHeader name={state.name} />
+        <DetailHeader name={state.userName} />
         {isUpdate ? (
           <DetailUpdateArea
             content={newContent}
