@@ -7,8 +7,9 @@ import FanLetter from '../components/Home/FanLetter';
 import { MemberTypes, ErrMsgTypes, ClickFormTypes } from '../types/letters';
 import { StMainUl } from './Home.style';
 import { checkFormValue } from '../controllers/validation';
-import { RootState, useAppSelector } from '../redux/config';
+import { RootState, useAppDispatch, useAppSelector } from '../redux/config';
 import { getCookie } from '../controllers/cookies';
+import { __getUserInfo } from '../redux/users';
 
 interface MainPropsTypes {
   member: MemberTypes;
@@ -16,7 +17,9 @@ interface MainPropsTypes {
 }
 
 const Home = ({ member, changeMember }: MainPropsTypes) => {
+  const dispatch = useAppDispatch();
   const data = useAppSelector((state: RootState) => state.letters);
+  const userInfo = useAppSelector((state) => state.user.userInfo);
   const token = getCookie('access_token');
 
   const [errMsg, setErrMsg] = useState<ErrMsgTypes>({ type: '', msg: '' });
@@ -35,10 +38,10 @@ const Home = ({ member, changeMember }: MainPropsTypes) => {
   };
 
   useEffect(() => {
-    if (token) {
-      console.log(token);
+    if (token && userInfo.id === '') {
+      dispatch(__getUserInfo(token));
     }
-  }, [token]);
+  }, [dispatch, token, userInfo]);
 
   return (
     <>

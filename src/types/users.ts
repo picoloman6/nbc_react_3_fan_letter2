@@ -10,3 +10,10 @@ export interface RegisterValueTypes {
   confirmPassword?: string;
   nickname?: string;
 }
+
+export interface UserInfoTypes {
+  id: string;
+  nickname: string;
+  avatar: null | string;
+  success: boolean;
+}

@@ -2,10 +2,12 @@ import { configureStore } from '@reduxjs/toolkit';
 import { useDispatch, useSelector } from 'react-redux';
 
 import letters from './letters';
+import user from './users';
 
 const store = configureStore({
   reducer: {
-    letters
+    letters,
+    user
   }
 });
 
