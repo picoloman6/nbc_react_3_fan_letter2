@@ -10,7 +10,7 @@ interface FanLetterPropsTypes {
 
 const FanLetter = ({ letter }: FanLetterPropsTypes) => {
   const navigate = useNavigate();
-  const { id, name, content, createdAt } = letter;
+  const { id, userName, content, createdAt } = letter;
 
   const handleClickDetail = () => {
     navigate(`/detail?id=${id}`, { state: letter });
@@ -18,7 +18,7 @@ const FanLetter = ({ letter }: FanLetterPropsTypes) => {
 
   return (
     <StFanLetterWrapper onClick={handleClickDetail}>
-      <StFanLetterName>{name}</StFanLetterName>
+      <StFanLetterName>{userName}</StFanLetterName>
       <span>{convertDate(createdAt)}</span>
       <span>
         {content.length > 35 ? `${content.slice(0, 35)}...` : content}

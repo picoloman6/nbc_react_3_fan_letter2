@@ -5,7 +5,7 @@ export const StForm = styled('form', {
   justifyContent: 'space-around',
   flexDirection: 'column',
   width: '30rem',
-  height: '17rem',
+  height: '15rem',
   background: 'Violet',
   padding: '1rem',
   margin: '0 auto',

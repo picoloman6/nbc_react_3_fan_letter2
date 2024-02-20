@@ -18,6 +18,5 @@ export const getLettersApi = async () => {
 };
 
 export const postLetterApi = async (newLetter: LettersType) => {
-  const res = await instance.post('/letters', newLetter);
-  console.log(res);
+  await instance.post('/letters', newLetter);
 };

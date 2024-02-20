@@ -1,39 +1,36 @@
 {
   "letters": [
     {
-      "id": "aaaabbbbb",
-      "name": "닝닝팬",
-      "content": "닝닝팬입니다",
-      "member": "닝닝",
-      "createdAt": 1524645645
+      "id": "bce68348-5281-429b-9748-aa4d531f4f27",
+      "member": "카리나",
+      "content": "하이요 만나서 반가워요",
+      "userId": "nbc123",
+      "userName": "111",
+      "createdAt": 1708423060954
     },
     {
-      "id": "aaaccccca",
-      "name": "윈터팬",
-      "content": "윈터팬입니다",
+      "id": "9561105c-c353-4399-931c-0870c19b708e",
+      "member": "카리나",
+      "content": "하이요요요용",
+      "userId": "nbc123",
+      "userName": "111",
+      "createdAt": 1708423189833
+    },
+    {
+      "id": "bf98be16-6a3d-4e25-b7ab-2136428ad1a2",
       "member": "윈터",
-      "createdAt": 1524645645
+      "content": "하이요요요용",
+      "userId": "nbc123",
+      "userName": "111",
+      "createdAt": 1708423200173
     },
     {
-      "id": "aasdfsdfa",
-      "name": "지젤팬",
-      "content": "지젤팬입니다",
+      "id": "367eb23d-10a9-4019-9099-176121746b0d",
       "member": "지젤",
-      "createdAt": 1524645645
-    },
-    {
-      "id": "aaaa",
-      "name": "카리나팬",
-      "content": "카리나팬입니다",
-      "member": "카리나",
-      "createdAt": 1524645645
-    },
-    {
-      "id": "ssssss",
-      "member": "카리나",
-      "content": "하하하",
-      "name": "크크크크",
-      "createdAt": 15616515616
+      "content": "지젤님 반가워요",
+      "userId": "nbc123",
+      "userName": "111",
+      "createdAt": 1708423599253
     }
   ]
 }

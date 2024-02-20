@@ -1,15 +1,18 @@
 import { useState, useEffect, ReactElement } from 'react';
+import { v4 as uuid4 } from 'uuid';
 
 import Header from '../components/Home/Header';
 import MainForm from '../components/Home/MainForm';
 import FanLetter from '../components/Home/FanLetter';
+import { StMainUl } from './Home.style';
 
 import { MemberTypes, ErrMsgTypes, ClickFormTypes } from '../types/letters';
-import { StMainUl } from './Home.style';
 import { checkFormValue } from '../controllers/validation';
-import { RootState, useAppDispatch, useAppSelector } from '../redux/config';
 import { getCookie } from '../controllers/cookies';
+import { postLetterApi } from '../apis/letters';
+import { RootState, useAppDispatch, useAppSelector } from '../redux/config';
 import { __getUserInfo } from '../redux/users';
+import { __getLetters } from '../redux/letters';
 
 interface MainPropsTypes {
   member: MemberTypes;
@@ -24,17 +27,28 @@ const Home = ({ member, changeMember }: MainPropsTypes) => {
 
   const [errMsg, setErrMsg] = useState<ErrMsgTypes>({ type: '', msg: '' });
 
-  const onClickForm: ClickFormTypes = async (e, name, content, setInput) => {
+  const onClickForm: ClickFormTypes = async (e, content, setInput) => {
     e.preventDefault();
 
-    const checkResult = checkFormValue(name, content);
-    setErrMsg(checkResult);
+    const valueCheck = checkFormValue(content);
+    setErrMsg(valueCheck);
 
-    if (checkResult.type !== '') {
+    if (valueCheck.type !== '') {
       return;
     }
 
-    setInput({ name: '', content: '' });
+    const newLetter = {
+      id: uuid4(),
+      member,
+      content,
+      userId: userInfo.id,
+      userName: userInfo.nickname,
+      createdAt: new Date().getTime()
+    };
+
+    await postLetterApi(newLetter);
+    dispatch(__getLetters());
+    setInput('');
   };
 
   useEffect(() => {

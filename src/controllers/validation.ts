@@ -3,15 +3,10 @@ import { ErrMsgTypes } from '../types/letters';
 import { RegisterValueTypes } from '../types/users';
 
 export const checkFormValue = (
-  name: string,
   content: string,
   oldContent?: string
 ): ErrMsgTypes => {
   const { min, max } = letterLenLimit;
-  if (name === '') {
-    return { type: 'name', msg: '이름을 입력하세요.' };
-  }
-
   if (oldContent && content === oldContent) {
     return { type: 'content', msg: '수정된 내용이 없습니다.' };
   }

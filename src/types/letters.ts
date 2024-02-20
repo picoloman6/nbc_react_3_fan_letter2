@@ -6,31 +6,24 @@ export interface MemberStateTypes {
 }
 
 export interface LetterInputTypes {
-  name: string;
   content: string;
   member?: string;
 }
 
 export interface LettersType extends LetterInputTypes {
   id: string;
+  userId: string;
+  userName: string;
   createdAt: number;
 }
 
 export interface ErrMsgTypes {
-  type:
-    | ''
-    | 'name'
-    | 'content'
-    | 'id'
-    | 'nickname'
-    | 'password'
-    | 'confirmPassword';
+  type: '' | 'content' | 'id' | 'nickname' | 'password' | 'confirmPassword';
   msg: string;
 }
 
 export type ClickFormTypes = (
   e: React.FormEvent,
-  name: string,
   content: string,
-  setInput: React.Dispatch<React.SetStateAction<LetterInputTypes>>
+  setContent: React.Dispatch<React.SetStateAction<string>>
 ) => void;
