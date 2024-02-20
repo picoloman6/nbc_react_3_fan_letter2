@@ -16,3 +16,8 @@ export const getLettersApi = async () => {
   const res = await instance.get('/letters');
   return res.data as LettersType[];
 };
+
+export const postLetterApi = async (newLetter: LettersType) => {
+  const res = await instance.post('/letters', newLetter);
+  console.log(res);
+};
