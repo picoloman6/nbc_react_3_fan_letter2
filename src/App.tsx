@@ -3,7 +3,7 @@ import { BrowserRouter, Routes, Route } from 'react-router-dom';
 
 import Home from './pages/Home';
 // import Detail from './pages/Detail';
-import Login from './components/Login/LoginModal';
+import LoginPage from './components/Login/LoginPage';
 
 import NotFound from './pages/NotFound';
 
@@ -32,7 +32,7 @@ function App() {
           element={<Home member={member} changeMember={changeMember} />}
         />
         {/* <Route path='/detail' element={<Detail />} /> */}
-        <Route path='/login' element={<Login />} />
+        <Route path='/login' element={<LoginPage />} />
         <Route path='*' element={<NotFound />} />
       </Routes>
     </BrowserRouter>

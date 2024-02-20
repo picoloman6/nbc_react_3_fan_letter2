@@ -1,4 +1,4 @@
-import { ReactElement, useEffect, useState } from 'react';
+import { ReactElement, useState } from 'react';
 
 import Header from '../components/Home/Header';
 import MainForm from '../components/Home/MainForm';
@@ -31,8 +31,6 @@ const Home = ({ member, changeMember }: MainPropsTypes) => {
 
     setInput({ name: '', content: '' });
   };
-
-  useEffect(() => {}, []);
 
   return (
     <>
