@@ -53,7 +53,7 @@ export const checkRegFormValue = (value: RegisterValueTypes): ErrMsgTypes => {
     };
   }
 
-  if (confirmPassword === '' && password !== confirmPassword) {
+  if (confirmPassword !== '' && password !== confirmPassword) {
     return {
       type: 'confirmPassword',
       msg: '비밀번호가 일치하지 않습니다'

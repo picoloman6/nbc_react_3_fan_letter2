@@ -19,7 +19,7 @@ interface RegisterModalPropsTypes {
 }
 
 const RegisterModal = ({ changeIsLogin }: RegisterModalPropsTypes) => {
-  const { value, handleChange, reset } = useForm({
+  const { value, handleChange } = useForm({
     id: '',
     password: '',
     confirmPassword: '',
@@ -49,14 +49,13 @@ const RegisterModal = ({ changeIsLogin }: RegisterModalPropsTypes) => {
           return;
         }
 
-        reset();
+        changeIsLogin();
       } catch (e) {
         console.log(e);
       }
     }
 
     handleChangeErr(checkValue);
-    changeIsLogin();
   };
 
   return (

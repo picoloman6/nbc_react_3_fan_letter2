@@ -39,9 +39,10 @@ const LoginModal = ({ changeIsLogin }: LoginModalPropsTypes) => {
       }
 
       setCookie('access_token', data);
+      navigate('/');
     }
 
-    navigate('/');
+    handleChangeErr(checkValue);
   };
 
   return (

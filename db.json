@@ -17,6 +17,24 @@
       "userName": "카리나짱짱맨",
       "userAvatar": null,
       "createdAt": 1708483498681
+    },
+    {
+      "id": "ddd5afc9-7b9f-4c65-bdb2-8895e779430e",
+      "member": "윈터",
+      "content": "하하하하핳하",
+      "userId": "nbc321",
+      "userName": "카리나짱짱맨",
+      "userAvatar": "https://react-jwt-avatar.s3.ap-northeast-2.amazonaws.com/24-02-21/a78bb1c9-d690-42e3-8022-899df6463b77.jpg",
+      "createdAt": 1708491593038
+    },
+    {
+      "id": "88ecc620-51ab-441a-86d3-b7bd968a45c0",
+      "member": "윈터",
+      "content": "sdfsdfsf",
+      "userId": "nbc123",
+      "userName": "소농민123",
+      "userAvatar": "https://react-jwt-avatar.s3.ap-northeast-2.amazonaws.com/24-02-21/3ebb2116-cbe0-4fe8-a728-c886480b80e6.jpg",
+      "createdAt": 1708492376270
     }
   ]
 }
