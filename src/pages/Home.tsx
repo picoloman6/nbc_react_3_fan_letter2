@@ -42,6 +42,7 @@ const Home = ({ member, changeMember }: MainPropsTypes) => {
       content,
       userId: userInfo.id,
       userName: userInfo.nickname,
+      userAvatar: userInfo.avatar,
       createdAt: new Date().getTime()
     };
 

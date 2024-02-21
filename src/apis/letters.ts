@@ -25,10 +25,6 @@ export const postLetterApi = async (newLetter: LettersType) => {
 
 export const deleteLetterApi = async (id: string) => {
   await instance.delete(`/letters/${id}`);
-  // const res = await instance.patch(`/letters?userId=nbc123`, {
-  //   nickname: '소농민123'
-  // });
-  // console.log(res);
 };
 
 export const updateLetterApi = async (id: string, content: string) => {

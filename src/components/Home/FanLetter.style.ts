@@ -3,7 +3,7 @@ import { styled } from '@stitches/react';
 export const StFanLetterWrapper = styled('li', {
   display: 'flex',
   justifyContent: 'space-around',
-  flexDirection: 'column',
+  alignItems: 'center',
   width: '30rem',
   height: '8rem',
   background: 'Gray',
@@ -14,4 +14,12 @@ export const StFanLetterWrapper = styled('li', {
 
 export const StFanLetterName = styled('h3', {
   fontSize: '1.5rem'
+});
+
+export const StLetterContentsWrapper = styled('div', {
+  display: 'flex',
+  justifyContent: 'space-around',
+  flexDirection: 'column',
+  width: '70%',
+  height: '100%'
 });

@@ -1,8 +1,15 @@
 import { useNavigate } from 'react-router-dom';
 
+import {
+  StFanLetterWrapper,
+  StFanLetterName,
+  StLetterContentsWrapper
+} from './FanLetter.style';
+import { UserInfoImg } from '../MyPage/UserInfo.style';
+
 import { convertDate } from '../../controllers/date';
 import { LettersType } from '../../types/letters';
-import { StFanLetterWrapper, StFanLetterName } from './FanLetter.style';
+import { userDefaultImg } from '../../constants';
 
 interface FanLetterPropsTypes {
   letter: LettersType;
@@ -10,7 +17,7 @@ interface FanLetterPropsTypes {
 
 const FanLetter = ({ letter }: FanLetterPropsTypes) => {
   const navigate = useNavigate();
-  const { id, userName, content, createdAt } = letter;
+  const { id, userName, userAvatar, content, createdAt } = letter;
 
   const handleClickDetail = () => {
     navigate(`/detail?id=${id}`, { state: letter });
@@ -18,11 +25,14 @@ const FanLetter = ({ letter }: FanLetterPropsTypes) => {
 
   return (
     <StFanLetterWrapper onClick={handleClickDetail}>
-      <StFanLetterName>{userName}</StFanLetterName>
-      <span>{convertDate(createdAt)}</span>
-      <span>
-        {content.length > 35 ? `${content.slice(0, 35)}...` : content}
-      </span>
+      <UserInfoImg src={userAvatar ? userAvatar : userDefaultImg} />
+      <StLetterContentsWrapper>
+        <StFanLetterName>{userName}</StFanLetterName>
+        <span>{convertDate(createdAt)}</span>
+        <span>
+          {content.length > 35 ? `${content.slice(0, 35)}...` : content}
+        </span>
+      </StLetterContentsWrapper>
     </StFanLetterWrapper>
   );
 };

@@ -15,6 +15,7 @@ export interface LettersType extends LetterInputTypes {
   userId: string;
   userName: string;
   createdAt: number;
+  userAvatar: string | null;
 }
 
 export interface ErrMsgTypes {

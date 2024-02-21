@@ -1,60 +1,22 @@
 {
   "letters": [
     {
-      "id": "bce68348-5281-429b-9748-aa4d531f4f27",
+      "id": "71f5d1b5-dac4-4a7a-b85d-b58be838de1d",
       "member": "카리나",
-      "content": "하이요 만나서 반가워요",
-      "userId": "nbc123",
-      "userName": "111",
-      "createdAt": 1708423060954
-    },
-    {
-      "id": "9561105c-c353-4399-931c-0870c19b708e",
-      "member": "카리나",
-      "content": "하이요요요용ㅇㅇㅇ",
-      "userId": "nbc123",
-      "userName": "111",
-      "createdAt": 1708423189833
-    },
-    {
-      "id": "bf98be16-6a3d-4e25-b7ab-2136428ad1a2",
-      "member": "윈터",
-      "content": "하이요요요용",
-      "userId": "nbc123",
-      "userName": "111",
-      "createdAt": 1708423200173
-    },
-    {
-      "id": "a46ddd7b-7926-4a04-a848-578e82a4f8ad",
-      "member": "닝닝",
-      "content": "닝닝닝닝닝",
-      "userId": "nbc111",
-      "userName": "카카로트",
-      "createdAt": 1708423795145
-    },
-    {
-      "id": "ef68a9c4-baa2-4b47-910d-de18d93240e3",
-      "member": "윈터",
-      "content": "윈터 반가워요",
-      "userId": "nbc321",
-      "userName": "카리나짱짱맨",
-      "createdAt": 1708423950681
-    },
-    {
-      "id": "3d4467b1-77a0-4f06-88dc-49ceb4308290",
-      "member": "카리나",
-      "content": "ㄴㅇㄹㄴㅇㄹㅁㅁㅁㅁㅁ",
-      "userId": "nbc321",
-      "userName": "카리나짱짱맨",
-      "createdAt": 1708426398837
-    },
-    {
-      "id": "cb304c09-c4a4-47b1-b1bd-91f613da7170",
-      "member": "닝닝",
-      "content": "ㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋ",
+      "content": "안녕하세요 카리나님",
       "userId": "nbc123",
       "userName": "소농민123",
-      "createdAt": 1708481679533
+      "userAvatar": "https://react-jwt-avatar.s3.ap-northeast-2.amazonaws.com/24-02-21/3ebb2116-cbe0-4fe8-a728-c886480b80e6.jpg",
+      "createdAt": 1708483065582
+    },
+    {
+      "id": "e1d6cdd7-c50a-4894-84a1-6b7f1244a9f8",
+      "member": "카리나",
+      "content": "안녕하세요 카리나님안녕하세요 카리나님안녕하세요 카리나님안녕하세요 카리나님안녕하세요 카리나님안녕하세요 카리나님안녕하세요 카리나님안녕하세요 카리나님안녕하세요 카리나님안녕하세요 카리나님안녕하세요 카리나님안녕하세요 카리나님안녕하세요 카리나님안녕하세요 카리나님안녕하세요 카리나님",
+      "userId": "nbc321",
+      "userName": "카리나짱짱맨",
+      "userAvatar": null,
+      "createdAt": 1708483498681
     }
   ]
 }
