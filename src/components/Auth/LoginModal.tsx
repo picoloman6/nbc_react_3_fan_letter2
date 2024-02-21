@@ -6,7 +6,7 @@ import {
   StInputWapper,
   StInputErrWrapper,
   StFormInput
-} from './AuthPage.style';
+} from '../../pages/AuthPage.style';
 import { StLoginSpan } from '../Home/Header.style';
 import { StErrMsg } from '../Home/MainForm.style';
 

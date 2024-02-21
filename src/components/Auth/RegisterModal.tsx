@@ -6,7 +6,7 @@ import {
   StBtnWrapper,
   StInputErrWrapper,
   StFormInput
-} from './AuthPage.style';
+} from '../../pages/AuthPage.style';
 import { StErrMsg } from '../Home/MainForm.style';
 
 import useForm from '../../hooks/useForm';

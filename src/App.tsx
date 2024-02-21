@@ -4,7 +4,7 @@ import { CookiesProvider } from 'react-cookie';
 
 import Home from './pages/Home';
 import Detail from './pages/Detail';
-import AuthPage from './components/Auth/AuthPage';
+import AuthPage from './pages/AuthPage';
 
 import NotFound from './pages/NotFound';
 

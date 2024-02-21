@@ -1,11 +1,11 @@
 import { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 
-import LoginModal from './LoginModal';
-import RegisterModal from './RegisterModal';
+import LoginModal from '../components/Auth/LoginModal';
+import RegisterModal from '../components/Auth/RegisterModal';
 import { StGoHomeBtn, StModalWrapper } from './AuthPage.style';
 
-import { getCookie } from '../../controllers/cookies';
+import { getCookie } from '../controllers/cookies';
 
 const AuthPage = () => {
   const navigate = useNavigate();

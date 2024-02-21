@@ -1,6 +1,6 @@
 import { styled } from '@stitches/react';
 
-import { modalColors } from '../../constants/colors';
+import { modalColors } from '../constants/colors';
 
 const flex = {
   display: 'flex',

@@ -20,7 +20,7 @@ const Detail = () => {
   const navigate = useNavigate();
 
   const [isUpdate, setIsUpdate] = useState<boolean>(false);
-  const [newContent, setNewContent] = useState<string>(state.content);
+  const [newContent, setNewContent] = useState<string>(state?.content);
   const [errMsg, setErrMsg] = useState<ErrMsgTypes>({ type: '', msg: '' });
 
   const token = getCookie('access_token');
