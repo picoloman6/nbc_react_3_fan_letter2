@@ -1,6 +1,6 @@
 import { createAsyncThunk, createSlice } from '@reduxjs/toolkit';
 
-import { getUserInfoApi } from '../apis/users';
+import { getUserInfoApi, updateUserInfoApi } from '../apis/users';
 import { UserInfoTypes } from '../types/users';
 
 interface StateTypes {
@@ -14,6 +14,22 @@ export const __getUserInfo = createAsyncThunk(
   async (token: string, thunkApi) => {
     try {
       const data = await getUserInfoApi(token);
+
+      return thunkApi.fulfillWithValue(data);
+    } catch (e) {
+      return thunkApi.rejectWithValue(e);
+    }
+  }
+);
+
+export const __patchUserInfo = createAsyncThunk(
+  '__patchUserInfo',
+  async (
+    { token, formData }: { token: string; formData: FormData },
+    thunkApi
+  ) => {
+    try {
+      const data = await updateUserInfoApi(token, formData);
 
       return thunkApi.fulfillWithValue(data);
     } catch (e) {
@@ -43,6 +59,9 @@ const userSlice = createSlice({
     builder.addCase(__getUserInfo.rejected, (state, action) => {
       state.isLoading = false;
       state.error = action.payload;
+    });
+    builder.addCase(__patchUserInfo.fulfilled, (state, action) => {
+      state.userInfo = { ...state.userInfo, ...action.payload };
     });
   }
 });

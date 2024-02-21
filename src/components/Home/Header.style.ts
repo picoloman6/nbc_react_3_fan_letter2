@@ -28,7 +28,9 @@ export const StLoginSpan = styled('span', {
 
 export const StUserInfoSpan = styled('span', {
   marginRight: '1rem',
-  fontWeight: 'bold'
+  fontWeight: 'bold',
+  borderBottom: '1px solid black',
+  cursor: 'pointer'
 });
 
 export const StUserInfoWrapper = styled('div', {

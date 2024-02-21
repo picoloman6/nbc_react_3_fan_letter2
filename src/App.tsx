@@ -5,7 +5,7 @@ import { CookiesProvider } from 'react-cookie';
 import Home from './pages/Home';
 import Detail from './pages/Detail';
 import AuthPage from './pages/AuthPage';
-
+import MyPage from './pages/MyPage';
 import NotFound from './pages/NotFound';
 
 import { useAppDispatch } from './redux/config';
@@ -35,6 +35,7 @@ function App() {
           />
           <Route path='/detail' element={<Detail />} />
           <Route path='/auth' element={<AuthPage />} />
+          <Route path='/myPage' element={<MyPage />} />
           <Route path='*' element={<NotFound />} />
         </Routes>
       </BrowserRouter>

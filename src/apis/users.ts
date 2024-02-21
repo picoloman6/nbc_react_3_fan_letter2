@@ -44,3 +44,22 @@ export const getUserInfoApi = async (token: string) => {
     console.log(e);
   }
 };
+
+export const updateUserInfoApi = async (token: string, formData: FormData) => {
+  try {
+    const res = await instance.patch('/profile', formData, {
+      headers: {
+        'Content-Type': 'multipart/form-data',
+        Authorization: `Bearer ${token}`
+      }
+    });
+
+    const data = res.data;
+    delete data.message;
+    delete data.success;
+
+    return data;
+  } catch (e) {
+    console.log(e);
+  }
+};

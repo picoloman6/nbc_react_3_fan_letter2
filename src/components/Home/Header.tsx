@@ -22,8 +22,8 @@ const Header = memo(
   ({ member, changeMember, token, userName }: HeaderPropsTypes) => {
     const navigate = useNavigate();
 
-    const handleClickLogin = () => {
-      navigate('/auth');
+    const handleClickGo = (path: string) => {
+      navigate(path);
     };
 
     const handleClickLogout = () => {
@@ -35,12 +35,14 @@ const Header = memo(
       <StHeaderWrapper>
         <StHeaderTitle>프로젝트다</StHeaderTitle>
         {!token ? (
-          <StLoginSpan onClick={handleClickLogin} marginTop='true'>
+          <StLoginSpan onClick={() => handleClickGo('/auth')} marginTop='true'>
             로그인
           </StLoginSpan>
         ) : (
           <StUserInfoWrapper>
-            <StUserInfoSpan>{userName}</StUserInfoSpan>
+            <StUserInfoSpan onClick={() => handleClickGo('/mypage')}>
+              {userName}
+            </StUserInfoSpan>
             <StLoginSpan onClick={handleClickLogout} marginTop='true'>
               로그아웃
             </StLoginSpan>

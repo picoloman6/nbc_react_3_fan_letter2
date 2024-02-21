@@ -5,3 +5,6 @@ export const letterLenLimit = {
     return `${this.min}자 이상 ${this.max}자 이하로 입력하세요.`;
   }
 };
+
+export const userDefaultImg =
+  'https://picpac.kr/common/img/default_profile.png';
